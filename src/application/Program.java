@@ -53,15 +53,16 @@ public class Program {
 			worker.addContract(hourContract);
 		}
 		
-		System.out.println("Enter month and year to calculate income");
-		System.out.print("Month: ");
-		int month = scanner.nextInt();
+		System.out.println("Enter month and year to calculate income (MM/YYYY)");
+		String monthAndYearString = scanner.next();
 		
-		System.out.print("Year: ");
-		int year = scanner.nextInt();
+		int month = Integer.parseInt(monthAndYearString.substring(1, 2));
+		
+		
+		int year = Integer.parseInt(monthAndYearString.substring(3));
 		
 		System.out.println(worker);
-		System.out.println("Income for " + month+ "/" + year + ": " + String.format("%.2f", worker.income(year, month)));
+		System.out.println("Income for " + monthAndYearString + String.format("%.2f", worker.income(year, month)));
 		scanner.close();
 	}
 
